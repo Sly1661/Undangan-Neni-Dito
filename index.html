@@ -1,144 +1,145 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5eee8">
     <title>Wedding Invitation | Neni & Dito</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
+
 <audio id="bgMusic" loop preload="auto">
-    <source src="./Vidios/musik.mp3" type="audio/mpeg">
+    <source src="Vidios/musik.mp3" type="audio/mpeg">
 </audio>
 
-
-    <!-- HALAMAN PEMBUKA -->
+<!-- HALAMAN PEMBUKA -->
 <section class="cover" id="cover">
-    <video class="cover-video" autoplay muted loop playsinline>
-       <source src="Vidios/13.mp4" type="video/mp4">
+    <video class="cover-video" autoplay muted loop playsinline preload="auto">
+        <source src="Vidios/13.mp4" type="video/mp4">
     </video>
-   <button type="button" onclick="openInvitation()">BUKA UNDANGAN</button>
+    <button type="button" onclick="openInvitation()">BUKA UNDANGAN</button>
 </section>
 
-    <!-- ISI UNDANGAN -->
-    <main id="invitation" class="invitation hidden">
+<!-- ISI UNDANGAN -->
+<main id="invitation" class="invitation hidden">
 
-        <section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/2.mp4" type="video/mp4">
-    </video>
-</section>
-       <section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/3.mp4" type="video/mp4">
-    </video>
-</section>
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/2.mp4" type="video/mp4">
+        </video>
+    </section>
 
-       <section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/4.mp4" type="video/mp4">
-    </video>
-</section>
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/3.mp4" type="video/mp4">
+        </video>
+    </section>
 
-<section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/5.mp4" type="video/mp4">
-    </video>
-</section>
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/4.mp4" type="video/mp4">
+        </video>
+    </section>
 
-  <!-- HALAMAN 6: SAVE THE DATE -->
-<section class="page save-date-page">
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/5.mp4" type="video/mp4">
+        </video>
+    </section>
 
-    
-       <video autoplay muted loop playsinline width="100%">
-    <source src="Vidios/6.mp4" type="video/mp4">
-</video>
+    <!-- HALAMAN 6: SAVE THE DATE -->
+    <section class="page save-date-page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/6.mp4" type="video/mp4">
+        </video>
 
-    <div class="countdown-overlay">
-        <h2>Our Wedding Day</h2>
-        <p>Two Hearts, One Promise</p>
+        <div class="countdown-overlay">
+            <h2>Our Wedding Day</h2>
+            <p>Two Hearts, One Promise</p>
 
-        <div class="countdown-boxes">
-            <div><span id="days">0</span><small>HARI</small></div>
-            <div><span id="hours">0</span><small>JAM</small></div>
-            <div><span id="minutes">0</span><small>MENIT</small></div>
-            <div><span id="seconds">0</span><small>DETIK</small></div>
+            <div class="countdown-boxes">
+                <div><span id="days">0</span><small>HARI</small></div>
+                <div><span id="hours">0</span><small>JAM</small></div>
+                <div><span id="minutes">0</span><small>MENIT</small></div>
+                <div><span id="seconds">0</span><small>DETIK</small></div>
+            </div>
         </div>
-    </div>
+    </section>
 
-</section>
-       <section class="page">
-    <a href="https://maps.app.goo.gl/6HFGBwW8bJV9kpaFA" target="_blank" rel="noopener noreferrer">
-        <video autoplay muted loop playsinline width="100%">
-    <source src="Vidios/7.mp4" type="video/mp4">
-</video>
-    </a>
-</section>
+    <!-- HALAMAN 7: LOKASI -->
+    <section class="page">
+        <a href="https://maps.app.goo.gl/6HFGBwW8bJV9kpaFA"
+           target="_blank" rel="noopener noreferrer">
+            <video muted loop playsinline preload="none" width="100%">
+                <source data-src="Vidios/7.mp4" type="video/mp4">
+            </video>
+        </a>
+    </section>
 
     <!-- HALAMAN 8 -->
-<section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/8.mp4" type="video/mp4">
-    </video>
-</section>
-<!-- HALAMAN 9 -->
-<section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/9.mp4" type="video/mp4">
-    </video>
-</section>
-       <!-- HALAMAN 10 -->
-<section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/10.mp4" type="video/mp4">
-    </video>
-</section>
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/8.mp4" type="video/mp4">
+        </video>
+    </section>
 
-       <!-- HALAMAN 11: WEDDING WISHES -->
-<section class="page wishes-page animate-photo">
-   <video autoplay muted loop playsinline width="100%">
-    <source src="Vidios/11.mp4" type="video/mp4">
-</video>
-    <div class="wishes-form">
-    
+    <!-- HALAMAN 9 -->
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/9.mp4" type="video/mp4">
+        </video>
+    </section>
 
-        <form onsubmit="sendWish(event)">
+    <!-- HALAMAN 10 -->
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/10.mp4" type="video/mp4">
+        </video>
+    </section>
 
-            <input
-                type="text"
-                id="guestName"
-                placeholder="Nama Anda"
-                required
-            >
+    <!-- HALAMAN 11: WEDDING WISHES -->
+    <section class="page wishes-page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/11.mp4" type="video/mp4">
+        </video>
 
-            <textarea
-                id="guestWish"
-                placeholder="Tuliskan ucapan dan doa..."
-                required
-            ></textarea>
+        <div class="wishes-form">
+            <form onsubmit="sendWish(event)">
+                <input
+                    type="text"
+                    id="guestName"
+                    placeholder="Nama Anda"
+                    required
+                >
 
-            <select id="wishRecipient" required>
-                <option value="">Kirim ucapan kepada</option>
-                <option value="neni">Neni</option>
-                <option value="dito">Dito</option>
-            </select>
+                <textarea
+                    id="guestWish"
+                    placeholder="Tuliskan ucapan dan doa..."
+                    required
+                ></textarea>
 
-            <button type="submit">KIRIM UCAPAN</button>
+                <select id="wishRecipient" required>
+                    <option value="">Kirim ucapan kepada</option>
+                    <option value="neni">Neni</option>
+                    <option value="dito">Dito</option>
+                </select>
 
-        </form>
-    </div>
+                <button type="submit">KIRIM UCAPAN</button>
+            </form>
+        </div>
+    </section>
 
-</section>
+    <!-- HALAMAN 12 -->
+    <section class="page">
+        <video muted loop playsinline preload="none" width="100%">
+            <source data-src="Vidios/12.mp4" type="video/mp4">
+        </video>
+    </section>
 
-      <!-- HALAMAN 12 -->
-<section class="page">
-    <video autoplay muted loop playsinline width="100%">
-        <source src="Vidios/12.mp4" type="video/mp4">
-    </video>
-</section>
-    </main>
+</main>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
