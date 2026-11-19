@@ -103,3 +103,13 @@ document.querySelectorAll("video").forEach((video) => {
 // MEMASTIKAN MUSIK TERUS BERULANG
 const music = document.getElementById("bgMusic");
 music.loop = true;
+
+const musicCheck = document.getElementById("bgMusic");
+
+musicCheck.addEventListener("error", function() {
+    alert("Terjadi masalah saat memutar musik.");
+});
+
+musicCheck.addEventListener("ended", function() {
+    alert("Musik sudah mencapai akhir.");
+});
