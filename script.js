@@ -4,20 +4,15 @@ function openInvitation() {
     const invitation = document.getElementById("invitation");
     const music = document.getElementById("bgMusic");
 
-    music.loop = true;
-    music.currentTime = 0;
+    cover.style.display = "none";
+    invitation.classList.remove("hidden");
 
+    music.loop = true;
     music.play().catch(error => {
         console.log("Musik gagal diputar:", error);
     });
 
-    cover.style.display = "none";
-    invitation.classList.remove("hidden");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo(0, 0);
 }
 
 // COUNTDOWN PERNIKAHAN NENI & DITO
