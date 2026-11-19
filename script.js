@@ -8,6 +8,7 @@ function openInvitation() {
     invitation.classList.remove("hidden");
 
     music.loop = true;
+
     music.play().catch(error => {
         console.log("Musik gagal diputar:", error);
     });
@@ -15,24 +16,16 @@ function openInvitation() {
     window.scrollTo(0, 0);
 }
 
-// COUNTDOWN PERNIKAHAN NENI & DITO
+// COUNTDOWN PERNIKAHAN
 function updateCountdown() {
     const weddingDate = new Date("2027-01-31T00:00:00").getTime();
-    const now = new Date().getTime();
+    const now = Date.now();
     const distance = weddingDate - now;
 
-    if (distance <= 0) {
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const days = Math.max(0, Math.floor(distance / 86400000));
+    const hours = Math.max(0, Math.floor((distance % 86400000) / 3600000));
+    const minutes = Math.max(0, Math.floor((distance % 3600000) / 60000));
+    const seconds = Math.max(0, Math.floor((distance % 60000) / 1000));
 
     document.getElementById("days").textContent = days;
     document.getElementById("hours").textContent = hours;
@@ -64,35 +57,59 @@ function sendWish(event) {
     }
 
     const message = `Assalamu'alaikum, saya ${name}.\n\n${wish}\n\nSelamat menempuh hidup baru untuk Neni & Dito.`;
+
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
     window.open(url, "_blank");
 }
 
-// ANIMASI SAAT HALAMAN TERLIHAT
-const pageObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+// MEMUAT VIDEO SAAT MENDEKATI LAYAR
+const videos = document.querySelectorAll(".page video");
+
+if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+
+            if (entry.isIntersecting) {
+                if (video.dataset.loaded !== "true") {
+                    const source = video.querySelector("source");
+
+                    if (source && source.dataset.src) {
+                        source.src = source.dataset.src;
+                        video.load();
+                        video.dataset.loaded = "true";
+                    }
+                }
+
+                video.playbackRate = 0.7;
+
+                video.play().catch(error => {
+                    console.log("Video belum bisa diputar:", error);
+                });
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        rootMargin: "300px 0px",
+        threshold: 0.1
+    });
+
+    videos.forEach(video => {
+        videoObserver.observe(video);
+    });
+
+} else {
+    videos.forEach(video => {
+        const source = video.querySelector("source");
+
+        if (source && source.dataset.src) {
+            source.src = source.dataset.src;
+            video.load();
         }
     });
-}, {
-    threshold: 0.15
-});
-
-document.querySelectorAll(".page").forEach((page) => {
-    pageObserver.observe(page);
-});
-
-// MEMPERLAMBAT SEMUA VIDEO
-document.querySelectorAll("video").forEach((video) => {
-    video.defaultPlaybackRate = 0.7;
-    video.playbackRate = 0.7;
-
-    video.addEventListener("loadedmetadata", () => {
-        video.playbackRate = 0.7;
-    });
-});
+}
 
 // MUSIK BERULANG
 const music = document.getElementById("bgMusic");
