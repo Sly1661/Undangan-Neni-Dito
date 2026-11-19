@@ -1,8 +1,21 @@
+
+
 function openInvitation() {
     const cover = document.getElementById("cover");
     const invitation = document.getElementById("invitation");
     const music = document.getElementById("bgMusic");
-music.play();
+
+    music.loop = true;
+    music.currentTime = 0;
+
+    music.play().catch(error => {
+        console.log("Musik gagal diputar:", error);
+    });
+
+    music.addEventListener("ended", function() {
+        music.currentTime = 0;
+        music.play();
+    });
 
     cover.style.display = "none";
     invitation.classList.remove("hidden");
@@ -11,6 +24,9 @@ music.play();
         top: 0,
         behavior: "smooth"
     });
+}
+
+
 }
 // COUNTDOWN PERNIKAHAN NENI & DITO
 function updateCountdown() {
