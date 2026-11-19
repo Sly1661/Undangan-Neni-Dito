@@ -1,5 +1,4 @@
 
-
 function openInvitation() {
     const cover = document.getElementById("cover");
     const invitation = document.getElementById("invitation");
@@ -12,11 +11,6 @@ function openInvitation() {
         console.log("Musik gagal diputar:", error);
     });
 
-    music.addEventListener("ended", function() {
-        music.currentTime = 0;
-        music.play();
-    });
-
     cover.style.display = "none";
     invitation.classList.remove("hidden");
 
@@ -26,8 +20,6 @@ function openInvitation() {
     });
 }
 
-
-}
 // COUNTDOWN PERNIKAHAN NENI & DITO
 function updateCountdown() {
     const weddingDate = new Date("2027-01-31T00:00:00").getTime();
@@ -55,6 +47,7 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
 // KIRIM UCAPAN KE WHATSAPP
 function sendWish(event) {
     event.preventDefault();
@@ -95,21 +88,17 @@ const pageObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll(".page").forEach((page) => {
     pageObserver.observe(page);
 });
+
 // MEMPERLAMBAT SEMUA VIDEO
 document.querySelectorAll("video").forEach((video) => {
+    video.defaultPlaybackRate = 0.7;
     video.playbackRate = 0.7;
+
+    video.addEventListener("loadedmetadata", () => {
+        video.playbackRate = 0.7;
+    });
 });
 
-// MEMASTIKAN MUSIK TERUS BERULANG
+// MUSIK BERULANG
 const music = document.getElementById("bgMusic");
 music.loop = true;
-
-const musicCheck = document.getElementById("bgMusic");
-
-musicCheck.addEventListener("error", function() {
-    alert("Terjadi masalah saat memutar musik.");
-});
-
-musicCheck.addEventListener("ended", function() {
-    alert("Musik sudah mencapai akhir.");
-});
