@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -28,12 +29,22 @@ body {
     overflow: hidden;
 }
 
+.cover-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
 
 .cover button {
     position: absolute;
     bottom: 173px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
 }
 
 /* TOMBOL */
@@ -67,114 +78,27 @@ button:hover {
 }
 
 .page {
+    position: relative;
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    opacity: 1;
+    transform: none;
 }
 
-.page img {
+.page video {
     display: block;
     width: 100%;
     height: auto;
 }
 
-/* HALAMAN COUNTDOWN */
-.save-date-page {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    line-height: normal;
-    background: #fffaf5;
-}
-
-.save-date-page .countdown {
-    display: block;
-    width: 100%;
-    padding: 35px 15px;
-    text-align: center;
-    background: #fffaf5;
-}
-
-.save-date-page .countdown h2 {
-    font-size: 32px;
-    font-weight: normal;
-    line-height: 1.3;
-    margin-bottom: 10px;
-    color: #70564e;
-}
-
-.save-date-page .countdown p {
-    font-size: 16px;
-    line-height: 1.4;
-    margin-bottom: 22px;
-    color: #70564e;
-}
-
-.countdown-boxes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    width: 100%;
-}
-
-.countdown-boxes div {
-    padding: 15px 3px;
-    border: 1px solid #c8a77b;
-    border-radius: 10px;
-}
-
-.countdown-boxes span {
-    display: block;
-    font-size: 27px;
-    font-weight: bold;
-    line-height: 1.4;
-    color: #70564e;
-}
-
-.countdown-boxes small {
-    display: block;
-    font-size: 10px;
-    line-height: 1.3;
-    margin-top: 5px;
-    color: #70564e;
-}
-
-.save-date-page > img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-/* ANIMASI */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* TAMPILAN LAPTOP */
-@media (min-width: 768px) {
-    .invitation {
-        box-shadow: 0 0 35px rgba(90, 60, 40, 0.15);
-    }
-}
-/* COUNTDOWN MENIMPA FOTO HALAMAN 6 */
+/* COUNTDOWN */
 .save-date-page {
     position: relative;
     width: 100%;
-    line-height: normal;
     overflow: hidden;
-}
-
-.save-date-page > img {
-    display: block;
-    width: 100%;
-    height: auto;
+    line-height: normal;
+    background: #fffaf5;
 }
 
 .countdown-overlay {
@@ -192,74 +116,56 @@ button:hover {
     font-size: clamp(23px, 6vw, 34px);
     font-weight: normal;
     margin-bottom: 8px;
-}
-
-.countdown-overlay p {
-    font-size: clamp(12px, 3.5vw, 16px);
-    margin-bottom: 18px;
-}
-
-.countdown-overlay .countdown-boxes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 7px;
-}
-
-.countdown-overlay .countdown-boxes div {
-    background: rgba(255, 250, 245, 0.9);
-    border: 1px solid #c8a77b;
-    border-radius: 8px;
-    padding: 12px 2px;
-}
-
-.countdown-overlay .countdown-boxes span {
-    display: block;
-    font-size: clamp(18px, 5vw, 28px);
-    font-weight: bold;
-}
-
-.countdown-overlay .countdown-boxes small {
-    font-size: 9px;
-}
-/* SENTUHAN NAVY, IVORY & GOLD */
-.countdown-overlay h2 {
     color: #80644f;
-    font-family: Georgia, serif;
     letter-spacing: 1px;
     text-shadow: 0 1px 2px rgba(255,255,255,0.6);
 }
 
 .countdown-overlay p {
+    font-size: clamp(12px, 3.5vw, 16px);
+    margin-bottom: 18px;
     color: #80644f;
     letter-spacing: 1px;
 }
 
-.countdown-overlay .countdown-boxes div {
+.countdown-boxes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    width: 100%;
+}
+
+.countdown-boxes div {
     background: rgba(255, 250, 240, 0.94);
     border: 1px solid #c5a15b;
     box-shadow: 0 2px 8px rgba(20, 35, 60, 0.12);
+    border-radius: 8px;
+    padding: 12px 2px;
 }
 
-.countdown-overlay .countdown-boxes span {
+.countdown-boxes span {
+    display: block;
+    font-size: clamp(18px, 5vw, 28px);
+    font-weight: bold;
+    line-height: 1.4;
     color: #80644f;
 }
 
-.countdown-overlay .countdown-boxes small {
+.countdown-boxes small {
+    display: block;
+    font-size: 9px;
+    line-height: 1.3;
+    margin-top: 5px;
     color: #9a7740;
     letter-spacing: 1px;
 }
-/* WEDDING WISHES MENIMPA FOTO HALAMAN 11 */
+
+/* WEDDING WISHES */
 .wishes-page {
     position: relative;
     width: 100%;
     overflow: hidden;
     line-height: normal;
-}
-
-.wishes-page > img {
-    display: block;
-    width: 100%;
-    height: auto;
 }
 
 .wishes-form {
@@ -271,17 +177,6 @@ button:hover {
     z-index: 5;
     text-align: center;
     color: #172b49;
-}
-
-.wishes-form h2 {
-    font-size: 30px;
-    font-weight: normal;
-    margin-bottom: 8px;
-}
-
-.wishes-form p {
-    font-size: 12px;
-    margin-bottom: 15px;
 }
 
 .wishes-form form {
@@ -318,42 +213,21 @@ button:hover {
     font-size: 11px;
 }
 
-/* ANIMASI SETIAP HALAMAN */
-.page {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-.page.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-.cover-video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.cover button {
-    z-index: 2;
-}
-/* ANIMASI FOTO HALAMAN 8-12 */
-.animate-photo img {
-    animation: photoReveal 1.5s ease both;
-}
-
-@keyframes photoReveal {
+/* ANIMASI */
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: scale(0.94);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
+    }
+}
+
+/* TAMPILAN LAPTOP */
+@media (min-width: 768px) {
+    .invitation {
+        box-shadow: 0 0 35px rgba(90, 60, 40, 0.15);
     }
 }
