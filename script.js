@@ -79,3 +79,11 @@ const pageObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll(".page").forEach((page) => {
     pageObserver.observe(page);
 });
+// MEMPERLAMBAT SEMUA VIDEO
+document.querySelectorAll("video").forEach((video) => {
+    video.playbackRate = 0.7;
+});
+
+// MEMASTIKAN MUSIK TERUS BERULANG
+const music = document.getElementById("bgMusic");
+music.loop = true;
